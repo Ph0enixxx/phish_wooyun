@@ -57,4 +57,4 @@ def gologin( session2, token, yzm, username, password ):
                      'captcha': yzm
                      },
                      headers=headers, proxies=proxies, timeout=10)
-    return len(json.loads(loginsio.text)['msg']) < 37#len(u"登录失败,请检查邮箱或密码")
+    return len(json.loads(loginsio.text)['msg']) < 12#len(u"登录失败,请检查邮箱或密码")
