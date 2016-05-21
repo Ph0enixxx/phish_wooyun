@@ -71,7 +71,6 @@ def index():
                 gotit = usernames[count-1]
                 save_user_pass(gotit)
                 break
-        print "hei this is gotit", gotit
         return render_template( 'hasregistwooyun.html', cournum=1, gotit=gotit, msg=u"您提交的邮箱们都没有注册过乌云" )
 
 @app.route( '/captcha' )
