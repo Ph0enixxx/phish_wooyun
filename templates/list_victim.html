@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>
+            后台都被你猜到了，这么厉害啊
+        </title>
+        <link href="/static/tc/favicon.png" rel="shortcut icon">
+        <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="bs-example" data-example-id="simple-table">
+            <table class="table">
+                <caption>
+                    这些邮箱数据，不可以非法使用
+                </caption>
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            邮箱
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+            {% for num, userinfo in userinfos %}
+                        <th scope="row">
+                            {{num}}
+                        </th>
+                        <td>
+                            {{userinfo}}
+                        </td>
+                    </tr>
+                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

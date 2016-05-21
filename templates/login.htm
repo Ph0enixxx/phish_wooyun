@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>您还没有登录</title>
+<meta name="keywords" content="开发者,程序员,技术,网络安全,技术文章">
+<meta name="description" content="网络安全资讯、讨论，跨站师，渗透师，结界师聚集之地">
+<link type="text/css" rel="stylesheet" href="/static/login/style.css">
+<script type="text/javascript" src="/static/login/jquery.js"></script>
+<script type="text/javascript" src="/static/login/md5.js"></script>
+<script type="text/javascript" src="/static/login/login.js"></script>
+</head>
+<body>
+	<div class="top">
+	<div class="topContent">
+		<div class="logo">
+<script type="text/javascript">
+var searchHref='http://zone.wooyun.org/search/';
+
+function Search(){
+	location.href=searchHref+$("#kw").val();
+}
+function jump(){
+	var event = arguments.callee.caller.arguments[0] || window.event;
+	if(event.keyCode == 13){
+		Search()
+	}
+}
+$(function() {
+
+	if ( $("#__cz_push_d_object_box__") ) {
+		$("script[src^='http://cip4.czpush.com/']").attr("src"," ").remove();
+		$("#__cz_push_d_object_box__").empty().remove();
+		$("a[id^='__czUnion_a']").attr("href","#").remove();
+	}
+
+	if ( $("#ooDiv") ) {
+		$("#ooDiv").empty().parent("div").remove();
+	}
+
+});
+
+</script>
+		</div>
+
+	</div>
+</div>	<div class="main">
+
+		<div class="mainLeft">
+
+			<p class="bread">当前位置：<a href="../">乌云峰会门票购买</a> &gt;&gt; 登录</p>
+			<form id="formLogin" action="/check" method="post" onsubmit="return Check()">
+			<table class="formTable">
+				<tbody>
+					<tr>
+						<th width="100">邮箱：</th>
+						<td><input id="user" name="user" type="text" style="width: 150px"></td>
+					</tr>
+					<tr>
+						<th>密码：</th>
+						<td><input id="pwd" name="pwd" type="password" style="width: 150px"></td>
+					</tr>
+					<tr>
+						<th width="100">验证码：</th>
+						<td><input id="captcha" name="captcha" type="text" style="width:85px" maxlength="25">
+				<img title="点击刷新验证码" align="top" src="/static/login/captcha.php" onclick="this.src=&#39;http://zone.wooyun.org/captcha.php?&#39;+Math.random()" style="cursor:pointer"></td>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<td><input type="button" class="subbtn" value="登录" style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span id="msg" style="vertical-align: middle; color: red;"> </span></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			</form>
+		</div><!-- mainLeft End -->
+
+		<div class="mainRight">
+
+			<div class="rightItem personalInfo">
+				<h3><cite>乌云峰会</cite></h3>
+				<p class="introduce">登录后将跳转回门票购买页面</p>
+				<p class="remindInfo"><a class="btn" href="/login">登录</a></p>
+			</div>
+
+		</div><!-- mainRight End -->
+
+		<div class="clear"></div>
+
+	</div><!-- main End -->
+
+	<div class="copyright">
+		Copyright © 2016 <a href="http://zone.wooyun.org/login#">www.wooyun.org</a> All Rights Reserved.
+		<a href="http://www.miibeian.gov.cn/">沪ICP备11033592号-1</a>
+	</div>
+
+
+
+<script type="text/javascript">
+    var loginToken='ae84d802d8ed63fe1b962ceccaf1e9610vndgbs7a41iuc000nusse2u16'
+</script>
+
+</body></html>
