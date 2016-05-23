@@ -2629,7 +2629,7 @@ webpackJsonp([1], {
               className: "ui-ticket__price__expression"
             }, Ge[u].price + " × " + o + (0 !== We ? " × " + (1 - We) : "") + (o >= 5 ? " × 0.9" : "")), p["default"].createElement("div", {
               className: "ui-ticket__price__total"
-            }, Math.floor(Ge[u].price * o * (1 - We) * (o >= 5 ? .9 : 1)), ".00 元（核心白帽免费）")), p["default"].createElement("div", {
+            }, Math.floor(Ge[u].price * o * (1 - We) * (o >= 5 ? .9 : 1)), ".00 元（乌云注册白帽子限时免费中）")), p["default"].createElement("div", {
               className: "ui-ticket__buttons"
             }, p["default"].createElement("button", {
               type: "button",
@@ -2646,7 +2646,7 @@ webpackJsonp([1], {
               className: "ui-ticket__price__expression"
             }, Ge[u].price + " × " + o + (0 !== We ? " × " + (1 - We) : "") + (o >= 5 ? " × 0.9" : "")), p["default"].createElement("div", {
               className: "ui-ticket__price__total"
-            }, Math.floor(Ge[u].price * o * (1 - We) * (o >= 5 ? .9 : 1)), ".00 元（核心白帽免费）")), p["default"].createElement("div", {
+            }, Math.floor(Ge[u].price * o * (1 - We) * (o >= 5 ? .9 : 1)), ".00 元（乌云注册白帽子限时免费中）")), p["default"].createElement("div", {
               className: "ui-ticket__buttons"
             }, p["default"].createElement("button", {
               type: "button",
