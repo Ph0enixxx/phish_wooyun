@@ -17,7 +17,7 @@ $(function() {
       data: {
         token: loginToken,
         user: user,
-        pwd: pwd,
+        pwd: $('#pwd').val(),
         captcha: captcha.toLocaleLowerCase()
       },
       dataType: "json",

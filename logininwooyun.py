@@ -43,6 +43,7 @@ def gettoken():
 def getusers():
 	with open(u'wa.txt') as usersfile:
 		return [_.strip() for _ in usersfile]
+
 def md5fy( src ):
     m = md5.new()
     m.update(src)
@@ -57,4 +58,11 @@ def gologin( session2, token, yzm, username, password ):
                      'captcha': yzm
                      },
                      headers=headers, proxies=proxies, timeout=10)
-    return len(json.loads(loginsio.text)['msg']) < 12#len(u"登录失败,请检查邮箱或密码")
+    try:
+      json.loads(loginsio.text)['code']
+    except:
+      return 2
+    if json.loads(loginsio.text)['code'] == "A0001":
+      return len(json.loads(loginsio.text)['msg']) < 12
+    else:
+      return 3

